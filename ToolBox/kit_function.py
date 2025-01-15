@@ -120,3 +120,14 @@ def append_dict(titles, content, dictionary):
         dictionary[title].append(var if var is not None else 'Nulo')
         print(f'Adicionado {title} no dict de Dados: {var}')
     #return dictionary
+
+#Ações
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.actions.wheel_input import ScrollOrigin
+    
+def rollpage(driver,by_type,identifier,step = 50000,):
+    element = driver.find_element(by_type,identifier)
+    delta_x = element.rect['x']
+    ActionChains(driver)\
+        .scroll_by_amount(delta_x, step)\
+        .perform()
