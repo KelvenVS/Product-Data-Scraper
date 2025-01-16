@@ -17,7 +17,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-
+from IPython.display import clear_output
 def VerifyElement(by_type, identifier,driver):
     """Verifica se o elemento existe e o aguarda caso não esteja aparecendo
 
@@ -34,7 +34,6 @@ def VerifyElement(by_type, identifier,driver):
         element = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((by_type, identifier))
         )
-        # Agora você pode interagir com o elemento
         print("Elemento encontrado!!!")
         return element
     except (TimeoutException , NoSuchElementException):
