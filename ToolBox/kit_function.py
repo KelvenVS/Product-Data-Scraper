@@ -139,4 +139,18 @@ def safe_find_element(driver, by, identifier, default_value=None):
         VerifyElement(by, identifier, driver)  # Verifica a existência do elemento
         return driver.find_element(by, identifier)
     except (Timeout, NoSuchElementException):
-        return default_value        
+        return default_value
+
+#Função para criar uma nova instância do webdriver
+import ToolBox.kit_function as kit
+from selenium import webdriver
+from selenium.webdriver.edge.service import Service
+def newWindow():
+    # Inicializa a instância do EDGE
+    service = Service()
+    options = webdriver.EdgeOptions()
+    options.add_argument("-inprivate")
+    driver = webdriver.Edge(service=service, options=options)
+    driver.maximize_window()
+    
+    return driver
