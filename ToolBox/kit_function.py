@@ -131,3 +131,13 @@ def rollpage(driver,by_type,identifier,step = 50000,):
     ActionChains(driver)\
         .scroll_by_amount(delta_x, step)\
         .perform()
+
+from selenium.common.exceptions import TimeoutException as Timeout
+        
+# Função genérica para tentar capturar elementos
+def safe_find_element(driver, by, identifier, default_value=None):
+    try:
+        VerifyElement(by, identifier, driver)  # Verifica a existência do elemento
+        return driver.find_element(by, identifier)
+    except (Timeout, NoSuchElementException):
+        return default_value        
