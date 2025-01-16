@@ -29,15 +29,15 @@ def VerifyElement(by_type, identifier,driver):
         _None
     """
     try:
-        print('Esperando Elemento...')
+        #print('Esperando Elemento...')
         # Esperar até que o elemento esteja presente
         element = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((by_type, identifier))
         )
-        print("Elemento encontrado!!!")
+        #print("Elemento encontrado!!!")
         return element
     except (TimeoutException , NoSuchElementException):
-        print("O tempo de espera para o elemento expirou.")
+        #print("O tempo de espera para o elemento expirou.")
         return None
 
 # %%
