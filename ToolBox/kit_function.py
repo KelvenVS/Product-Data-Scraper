@@ -132,7 +132,7 @@ def rollpage(driver,by_type,identifier,step = 50000,):
         .perform()
 
 from selenium.common.exceptions import TimeoutException as Timeout
-        
+from selenium.webdriver.common.by import By        
 # Função genérica para tentar capturar elementos
 def safe_find_element(driver, by, identifier, default_value=None):
     try:
