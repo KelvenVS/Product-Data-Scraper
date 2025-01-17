@@ -29,15 +29,15 @@ def VerifyElement(by_type, identifier,driver):
         _None
     """
     try:
-        print('Esperando Elemento...')
+        #print('Esperando Elemento...')
         # Esperar até que o elemento esteja presente
         element = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((by_type, identifier))
         )
-        print("Elemento encontrado!!!")
+        #print("Elemento encontrado!!!")
         return element
     except (TimeoutException , NoSuchElementException):
-        print("O tempo de espera para o elemento expirou.")
+        #print("O tempo de espera para o elemento expirou.")
         return None
 
 # %%
@@ -132,7 +132,7 @@ def rollpage(driver,by_type,identifier,step = 50000,):
         .perform()
 
 from selenium.common.exceptions import TimeoutException as Timeout
-        
+from selenium.webdriver.common.by import By        
 # Função genérica para tentar capturar elementos
 def safe_find_element(driver, by, identifier, default_value=None):
     try:
